@@ -1,3 +1,4 @@
+#include <QTime>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -8,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     ui->lineEdit_Port->setText("8765");
-    ui->pushButton_Send->setEnabled(false);
+   // ui->pushButton_Send->setEnabled(false);
 
     server = new QTcpServer();
 
@@ -43,7 +44,7 @@ void MainWindow::on_pushButton_Listen_clicked()
     }
     else
     {
-        //如果正在连接（点击侦听后立即取消侦听，若socket没有指定对象会有异常，应修正——2017.9.30）
+        //如果正在连接（点击侦听后立即取消侦听，若socket没有指定对象会有异常，应修正）
         if(socket->state() == QAbstractSocket::ConnectedState)
         {
             //关闭连接
@@ -54,18 +55,20 @@ void MainWindow::on_pushButton_Listen_clicked()
         //修改按键文字
         ui->pushButton_Listen->setText("创建连接");
         //发送按键失能
-        ui->pushButton_Send->setEnabled(false);
+       // ui->pushButton_Send->setEnabled(false);
     }
 
 }
 
+/*
 void MainWindow::on_pushButton_Send_clicked()
 {
+
     qDebug() << "Send: " << ui->textEdit_Send->toPlainText();
     //获取文本框内容并以ASCII码形式发送
     socket->write(ui->textEdit_Send->toPlainText().toLatin1());
     socket->flush();
-}
+}*/
 
 void MainWindow::server_New_Connect()
 {
@@ -75,7 +78,7 @@ void MainWindow::server_New_Connect()
     QObject::connect(socket, &QTcpSocket::readyRead, this, &MainWindow::socket_Read_Data);
     QObject::connect(socket, &QTcpSocket::disconnected, this, &MainWindow::socket_Disconnected);
     //发送按键使能
-    ui->pushButton_Send->setEnabled(true);
+    //ui->pushButton_Send->setEnabled(true);
 
     qDebug() << "A Client connect!";
 }
@@ -87,16 +90,21 @@ void MainWindow::socket_Read_Data()
     buffer = socket->readAll();
     if(!buffer.isEmpty())
     {
-        QString str = ui->textEdit_Recv->toPlainText();
-        str+=tr(buffer);
+        QString str = tr(buffer);
+        //QTime startTime = QTime::fromString(str, "h:m:s.z");
         //刷新显示
-        ui->textEdit_Recv->setText(str);
+        //QString delay_time=QString::number(elapsed, 10);
+        //ui->textEdit_Recv->setText(tr("The elapse time is ")+delay_time+tr("ms. "));
+        //QString str2 = "Elapse Time is "+delay_time+"ms. ";
+        socket->write(str.toUtf8());
+        socket->flush();
+
     }
 }
 
 void MainWindow::socket_Disconnected()
 {
     //发送按键失能
-    ui->pushButton_Send->setEnabled(false);
+    //ui->pushButton_Send->setEnabled(false);
     qDebug() << "Disconnected!";
 }

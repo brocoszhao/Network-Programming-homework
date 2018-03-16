@@ -84,7 +84,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->on_pushButton_Listen_clicked(); break;
-        case 1: _t->on_pushButton_Send_clicked(); break;
+        //case 1: _t->on_pushButton_Send_clicked(); break;
         case 2: _t->server_New_Connect(); break;
         case 3: _t->socket_Read_Data(); break;
         case 4: _t->socket_Disconnected(); break;

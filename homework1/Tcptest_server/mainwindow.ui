@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>372</width>
+    <height>120</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -50,46 +50,13 @@
      <string>创建连接</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_Recv">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>60</y>
-      <width>81</width>
-      <height>151</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="textEdit_Send">
-    <property name="geometry">
-     <rect>
-      <x>180</x>
-      <y>60</y>
-      <width>181</width>
-      <height>151</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_Send">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>220</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>发送</string>
-    </property>
-   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>372</width>
      <height>23</height>
     </rect>
    </property>

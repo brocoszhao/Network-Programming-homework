@@ -1,5 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QTime>
+#include <QFile>
+#include <QTextStream>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -67,9 +70,13 @@ void MainWindow::on_pushButton_Connect_clicked()
 
 void MainWindow::on_pushButton_Send_clicked()
 {
-    qDebug() << "Send: " << ui->textEdit_Send->toPlainText();
+   // qDebug() << "Send: " << ui->textEdit_Send->toPlainText();
      //获取文本框内容并以ASCII码形式发送
-    socket->write(ui->textEdit_Send->toPlainText().toLatin1());
+    QTime startTime = QTime::currentTime();
+    qDebug()<<startTime;
+    QString str = startTime.toString("h:m:s.z")+" ";
+    qDebug()<<str;
+    socket->write(str.toUtf8());
     socket->flush();
 }
 
@@ -82,8 +89,27 @@ void MainWindow::socket_Read_Data()
     {
         QString str = ui->textEdit_Recv->toPlainText();
         str+=tr(buffer);
+        QTime startTime = QTime::fromString(str, "h:m:s.z");
+        qDebug()<<startTime;
+        QTime stopTime = QTime::currentTime();
+        qDebug()<<stopTime;
+        float elapsed = startTime.msecsTo(stopTime);
+        //QString delay_time=QString::number(elapsed, 10);
+        QString delay_time=QString("%1").arg(elapsed);
+        qDebug()<<"Elapse Time is "<<elapsed<<"ms";
         //刷新显示
-        ui->textEdit_Recv->setText(str);
+        ui->textEdit_Recv->setText(tr("The elapse time is ")+delay_time+tr("ms. "));
+
+        //存到txt文本里(这部分暂未测试)
+        QFile data("data.txt");
+        if(data.open(QFile::WriteOnly|QFile::Truncate))
+        {
+            QTextStream out(&data);
+            QTime currenttime = QTime::currentTime();
+            out<<QObject::tr("记录")<<currenttime;
+            out<<qSetFieldWidth(10)<<left<<delay_time<<endl;
+            data.close();
+        }
     }
 }
 
