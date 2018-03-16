@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2018-03-15T23:15:45
+# Project created by QtCreator 2018-03-16T09:31:28
 #
 #-------------------------------------------------
 
@@ -9,7 +9,7 @@ QT       += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = homework1
+TARGET = Tcptest_server
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -26,7 +26,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        dialog.cpp
+        mainwindow.cpp
 
 HEADERS += \
-        dialog.h
+        mainwindow.h
+
+FORMS += \
+        mainwindow.ui

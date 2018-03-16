@@ -7,6 +7,7 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include <QGridLayout>
+#include <QtNetWork>
 
 class Dialog : public QDialog
 {
@@ -15,6 +16,9 @@ class Dialog : public QDialog
 public:
     Dialog(QWidget *parent = 0,Qt::WindowFlags f=0);
     ~Dialog();
+public slots:
+    void newConnection();
+    void readclient();
 
 private:
    QLabel *InfoLabel;
@@ -23,6 +27,9 @@ private:
    QLineEdit *PortLineEdit;
    QPushButton *StartButton;
    QGridLayout *mainLayout;
+   QTcpSocket *Server;
+   QTcpSocket *clientConnection;
+   QTcpServer *server;
 };
 
 #endif // DIALOG_H
