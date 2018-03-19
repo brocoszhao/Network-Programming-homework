@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>180</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -79,21 +79,34 @@
       <x>30</x>
       <y>50</y>
       <width>351</width>
-      <height>161</height>
+      <height>41</height>
      </rect>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_Send">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>220</y>
+      <x>300</x>
+      <y>100</y>
       <width>75</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
      <string>发送</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>100</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>图像</string>
     </property>
    </widget>
   </widget>

@@ -74,7 +74,7 @@ void MainWindow::on_pushButton_Send_clicked()
      //获取文本框内容并以ASCII码形式发送
     QTime startTime = QTime::currentTime();
     qDebug()<<startTime;
-    QString str = startTime.toString("h:m:s.z")+" ";
+    QString str = startTime.toString("h:m:s.z");
     qDebug()<<str;
     socket->write(str.toUtf8());
     socket->flush();
@@ -88,7 +88,7 @@ void MainWindow::socket_Read_Data()
     if(!buffer.isEmpty())
     {
         QString str = ui->textEdit_Recv->toPlainText();
-        str+=tr(buffer);
+        str=tr(buffer);
         QTime startTime = QTime::fromString(str, "h:m:s.z");
         qDebug()<<startTime;
         QTime stopTime = QTime::currentTime();
@@ -101,7 +101,7 @@ void MainWindow::socket_Read_Data()
         ui->textEdit_Recv->setText(tr("The elapse time is ")+delay_time+tr("ms. "));
 
         //存到txt文本里(这部分暂未测试)
-        QFile data("data.txt");
+        /*QFile data("data.txt");
         if(data.open(QFile::WriteOnly|QFile::Truncate))
         {
             QTextStream out(&data);
@@ -109,7 +109,7 @@ void MainWindow::socket_Read_Data()
             out<<QObject::tr("记录")<<currenttime;
             out<<qSetFieldWidth(10)<<left<<delay_time<<endl;
             data.close();
-        }
+        }*/
     }
 }
 
@@ -120,4 +120,9 @@ void MainWindow::socket_Disconnected()
     //修改按键文字
     ui->pushButton_Connect->setText("连接");
     qDebug() << "Disconnected!";
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    qDebug()<<"显示图像";
 }

@@ -235,6 +235,7 @@ Makefile: ../Tcptest_client/Tcptest_client.pro D:/Qt_Creator/5.9.2/mingw53_32/mk
 		D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/features/lex.prf \
 		../Tcptest_client/Tcptest_client.pro \
 		D:/Qt_Creator/5.9.2/mingw53_32/lib/qtmaind.prl \
+		D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5PrintSupport.prl \
 		D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5Widgets.prl \
 		D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5Gui.prl \
 		D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5Network.prl \
@@ -414,6 +415,7 @@ D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/features/yacc.prf:
 D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/features/lex.prf:
 ../Tcptest_client/Tcptest_client.pro:
 D:/Qt_Creator/5.9.2/mingw53_32/lib/qtmaind.prl:
+D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5PrintSupport.prl:
 D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5Widgets.prl:
 D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5Gui.prl:
 D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5Network.prl:

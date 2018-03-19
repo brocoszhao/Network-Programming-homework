@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QTcpSocket>
+#include "qcustomplot.h"
 
 namespace Ui {
 class MainWindow;
@@ -26,9 +27,12 @@ private slots:
 
     void socket_Disconnected();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     QTcpSocket *socket;
+    QCustomPlot *timePlot;    //绘图功能还仍待添加
 };
 
 #endif // MAINWINDOW_H
