@@ -21,7 +21,7 @@ public:
 private slots:
     void on_pushButton_Listen_clicked();
 
-    void on_pushButton_Send_clicked();
+    //void on_pushButton_Send_clicked();
 
     void server_New_Connect();
 

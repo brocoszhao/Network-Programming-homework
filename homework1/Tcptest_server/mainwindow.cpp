@@ -44,7 +44,7 @@ void MainWindow::on_pushButton_Listen_clicked()
     }
     else
     {
-        //如果正在连接（点击侦听后立即取消侦听，若socket没有指定对象会有异常，应修正）
+        //如果正在连接（点击连接后立即取消侦听，若socket没有指定对象会有异常）
         if(socket->state() == QAbstractSocket::ConnectedState)
         {
             //关闭连接
