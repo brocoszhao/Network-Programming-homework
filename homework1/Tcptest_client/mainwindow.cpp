@@ -3,6 +3,7 @@
 #include <QTime>
 #include <QFile>
 #include <QTextStream>
+#include <windows.h>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -71,7 +72,8 @@ void MainWindow::on_pushButton_Connect_clicked()
 void MainWindow::on_pushButton_Send_clicked()
 {
    // qDebug() << "Send: " << ui->textEdit_Send->toPlainText();
-     //获取文本框内容并以ASCII码形式发送
+     //获取文本框内容并发送
+    qDebug()<<"单次发送！";
     QTime startTime = QTime::currentTime();
     qDebug()<<startTime;
     QString str = startTime.toString("h:m:s.z");
@@ -125,4 +127,48 @@ void MainWindow::socket_Disconnected()
 void MainWindow::on_pushButton_clicked()
 {
     qDebug()<<"显示图像";
+    QCustomPlot *pricePlot = CreateAndInitPlotGraph(QString("Time(s)"),0,1200,QString("PRICE(RMB)"),0,20,
+                                                          QRect(0,0,800,475),QString("PRICE"),fifthPageWidget);
+    m_plotNameMap.insert("PRICE",pricePlot);
+    m_plotRowNumMap.insert(4,pricePlot);
+    m_plotNumAndName.insert(4,"PRICE");
+    pricePlot->graph(0)->addData(0,0);
+}
+
+QCustomPlot* MainWindow::CreateAndInitPlotGraph(QString xLabel,int xRangeL,int xRangeR,QString yLabel,int yRangeL,int yRangeR,QRect rect,QString name,QWidget *parent)
+{
+    QCustomPlot *customPlot = new QCustomPlot(parent);
+    customPlot->legend->setVisible(true);
+    QFont lengendFont = font();
+    lengendFont.setPointSize(9);
+    customPlot->legend->setFont(lengendFont);
+    customPlot->legend->setBrush(QBrush(QColor(255,255,255,230)));
+    customPlot->axisRect()->insetLayout()->setInsetAlignment(0,Qt::AlignTop|Qt::AlignRight);
+    customPlot->setGeometry(rect);
+    customPlot->xAxis->setLabel(xLabel);
+    customPlot->xAxis->setRange(xRangeL,xRangeR);
+    customPlot->yAxis->setLabel(yLabel);
+    customPlot->yAxis->setRange(yRangeL,yRangeR);
+    customPlot->addGraph();
+    customPlot->graph(0)->setPen(QPen(QColor(Qt::black)));
+    customPlot->graph(0)->setLineStyle(QCPGraph::lsStepLeft);// li san de dian
+    customPlot->graph(0)->setName(name);
+
+    return customPlot;
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    qDebug()<<"循环了10次测试！";
+    for(int i=0;i<10;i++)
+    {
+        QTime startTime = QTime::currentTime();
+        qDebug()<<startTime;
+        QString str = startTime.toString("h:m:s.z");
+        qDebug()<<str;
+        socket->write(str.toUtf8());
+        socket->flush();
+        Sleep(2000);
+    }
+
 }

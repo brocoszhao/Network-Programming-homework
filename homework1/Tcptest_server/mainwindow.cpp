@@ -38,7 +38,7 @@ void MainWindow::on_pushButton_Listen_clicked()
             qDebug()<<server->errorString();
             return;
         }
-        //修改按键文字
+
         ui->pushButton_Listen->setText("取消连接");
         qDebug()<< "Listen succeessfully!";
     }
@@ -65,7 +65,7 @@ void MainWindow::on_pushButton_Send_clicked()
 {
 
     qDebug() << "Send: " << ui->textEdit_Send->toPlainText();
-    //获取文本框内容并以ASCII码形式发送
+    //获取文本框内容
     socket->write(ui->textEdit_Send->toPlainText().toLatin1());
     socket->flush();
 }*/
