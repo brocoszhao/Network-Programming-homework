@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(socket, &QTcpSocket::disconnected, this, &MainWindow::socket_Disconnected);
 
     ui->pushButton_Send->setEnabled(false);
+    ui->pushButton_2->setEnabled(false);
     ui->lineEdit_IP->setText("127.0.0.1");
     ui->lineEdit_Port->setText("8765");
 
@@ -56,6 +57,7 @@ void MainWindow::on_pushButton_Connect_clicked()
 
         //发送按键使能
         ui->pushButton_Send->setEnabled(true);
+        ui->pushButton_2->setEnabled(true);
         //修改按键文字
         ui->pushButton_Connect->setText("断开连接");
     }
@@ -84,11 +86,13 @@ void MainWindow::on_pushButton_Send_clicked()
 
 void MainWindow::socket_Read_Data()
 {
+    qDebug()<<"执行了一次readbuffer的操作！";
     QByteArray buffer;
     //读取缓冲区数据
     buffer = socket->readAll();
     if(!buffer.isEmpty())
     {
+
         QString str = ui->textEdit_Recv->toPlainText();
         str=tr(buffer);
         QTime startTime = QTime::fromString(str, "h:m:s.z");
@@ -101,6 +105,9 @@ void MainWindow::socket_Read_Data()
         qDebug()<<"Elapse Time is "<<elapsed<<"ms";
         //刷新显示
         ui->textEdit_Recv->setText(tr("The elapse time is ")+delay_time+tr("ms. "));
+      }
+
+
 
         //存到txt文本里(这部分暂未测试)
         /*QFile data("data.txt");
@@ -112,13 +119,14 @@ void MainWindow::socket_Read_Data()
             out<<qSetFieldWidth(10)<<left<<delay_time<<endl;
             data.close();
         }*/
-    }
+
 }
 
 void MainWindow::socket_Disconnected()
 {
     //发送按键失能
     ui->pushButton_Send->setEnabled(false);
+     ui->pushButton_2->setEnabled(false);
     //修改按键文字
     ui->pushButton_Connect->setText("连接");
     qDebug() << "Disconnected!";
@@ -126,15 +134,16 @@ void MainWindow::socket_Disconnected()
 
 void MainWindow::on_pushButton_clicked()
 {
-    qDebug()<<"显示图像";
-    QCustomPlot *pricePlot = CreateAndInitPlotGraph(QString("Time(s)"),0,1200,QString("PRICE(RMB)"),0,20,
-                                                          QRect(0,0,800,475),QString("PRICE"),fifthPageWidget);
-    m_plotNameMap.insert("PRICE",pricePlot);
-    m_plotRowNumMap.insert(4,pricePlot);
-    m_plotNumAndName.insert(4,"PRICE");
-    pricePlot->graph(0)->addData(0,0);
-}
 
+    qDebug()<<"显示图像";
+//    QCustomPlot *pricePlot = CreateAndInitPlotGraph(QString("Time(s)"),0,1200,QString("PRICE(RMB)"),0,20,
+//                                                          QRect(0,0,800,475),QString("PRICE"),fifthPageWidget);
+//    m_plotNameMap.insert("PRICE",pricePlot);
+//    m_plotRowNumMap.insert(4,pricePlot);
+//    m_plotNumAndName.insert(4,"PRICE");
+//    pricePlot->graph(0)->addData(0,0);
+}
+/*
 QCustomPlot* MainWindow::CreateAndInitPlotGraph(QString xLabel,int xRangeL,int xRangeR,QString yLabel,int yRangeL,int yRangeR,QRect rect,QString name,QWidget *parent)
 {
     QCustomPlot *customPlot = new QCustomPlot(parent);
@@ -156,19 +165,17 @@ QCustomPlot* MainWindow::CreateAndInitPlotGraph(QString xLabel,int xRangeL,int x
 
     return customPlot;
 }
+*/
 
 void MainWindow::on_pushButton_2_clicked()
 {
+
     qDebug()<<"循环了10次测试！";
-    for(int i=0;i<10;i++)
+    for(int i=0;i<2;i++)
     {
-        QTime startTime = QTime::currentTime();
-        qDebug()<<startTime;
-        QString str = startTime.toString("h:m:s.z");
-        qDebug()<<str;
-        socket->write(str.toUtf8());
-        socket->flush();
-        Sleep(2000);
+        on_pushButton_Send_clicked();
+        Sleep(5000);
+
     }
 
 }

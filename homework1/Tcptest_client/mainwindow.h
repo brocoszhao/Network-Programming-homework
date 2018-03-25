@@ -32,9 +32,11 @@ private slots:
     void on_pushButton_2_clicked();
 
 private:
+    bool flag=1;
     Ui::MainWindow *ui;
     QTcpSocket *socket;
     QCustomPlot *timePlot;    //绘图功能还仍待添加
+    QCustomPlot *CreateAndInitPlotGraph(QString xLabel,int xRangeL,int xRangeR,QString yLabel,int yRangeL,int yRangeR,QRect rect,QString name,QWidget *parent);
 };
 
 #endif // MAINWINDOW_H
