@@ -38,6 +38,7 @@ public:
     QTextEdit *textEdit_Recv;
     QPushButton *pushButton_Send;
     QPushButton *pushButton;
+    QPushButton *pushButton_2;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -73,6 +74,9 @@ public:
         pushButton = new QPushButton(centralWidget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         pushButton->setGeometry(QRect(40, 100, 75, 23));
+        pushButton_2 = new QPushButton(centralWidget);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        pushButton_2->setGeometry(QRect(194, 100, 91, 23));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -96,8 +100,9 @@ public:
         label->setText(QApplication::translate("MainWindow", "IP\345\234\260\345\235\200:", Q_NULLPTR));
         label_2->setText(QApplication::translate("MainWindow", "\347\253\257\345\217\243:", Q_NULLPTR));
         pushButton_Connect->setText(QApplication::translate("MainWindow", "\350\277\236\346\216\245", Q_NULLPTR));
-        pushButton_Send->setText(QApplication::translate("MainWindow", "\345\217\221\351\200\201", Q_NULLPTR));
+        pushButton_Send->setText(QApplication::translate("MainWindow", "\345\215\225\346\254\241\345\217\221\351\200\201", Q_NULLPTR));
         pushButton->setText(QApplication::translate("MainWindow", "\345\233\276\345\203\217", Q_NULLPTR));
+        pushButton_2->setText(QApplication::translate("MainWindow", "\345\244\232\346\254\241\345\217\221\351\200\201(10)", Q_NULLPTR));
     } // retranslateUi
 
 };

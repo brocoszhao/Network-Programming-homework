@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "plotdialog.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])

@@ -3,6 +3,8 @@
 #include <QTime>
 #include <QFile>
 #include <QTextStream>
+#include <QDialog>
+#include <windows.h>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -17,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(socket, &QTcpSocket::disconnected, this, &MainWindow::socket_Disconnected);
 
     ui->pushButton_Send->setEnabled(false);
+    ui->pushButton_2->setEnabled(false);
     ui->lineEdit_IP->setText("127.0.0.1");
     ui->lineEdit_Port->setText("8765");
 
@@ -55,6 +58,7 @@ void MainWindow::on_pushButton_Connect_clicked()
 
         //发送按键使能
         ui->pushButton_Send->setEnabled(true);
+        ui->pushButton_2->setEnabled(true);
         //修改按键文字
         ui->pushButton_Connect->setText("断开连接");
     }
@@ -71,7 +75,8 @@ void MainWindow::on_pushButton_Connect_clicked()
 void MainWindow::on_pushButton_Send_clicked()
 {
    // qDebug() << "Send: " << ui->textEdit_Send->toPlainText();
-     //获取文本框内容并以ASCII码形式发送
+     //获取文本框内容并发送
+    qDebug()<<"单次发送！";
     QTime startTime = QTime::currentTime();
     qDebug()<<startTime;
     QString str = startTime.toString("h:m:s.z");
@@ -82,11 +87,13 @@ void MainWindow::on_pushButton_Send_clicked()
 
 void MainWindow::socket_Read_Data()
 {
+    qDebug()<<"执行了一次readbuffer的操作！";
     QByteArray buffer;
     //读取缓冲区数据
     buffer = socket->readAll();
     if(!buffer.isEmpty())
     {
+
         QString str = ui->textEdit_Recv->toPlainText();
         str=tr(buffer);
         QTime startTime = QTime::fromString(str, "h:m:s.z");
@@ -99,24 +106,14 @@ void MainWindow::socket_Read_Data()
         qDebug()<<"Elapse Time is "<<elapsed<<"ms";
         //刷新显示
         ui->textEdit_Recv->setText(tr("The elapse time is ")+delay_time+tr("ms. "));
-
-        //存到txt文本里(这部分暂未测试)
-        /*QFile data("data.txt");
-        if(data.open(QFile::WriteOnly|QFile::Truncate))
-        {
-            QTextStream out(&data);
-            QTime currenttime = QTime::currentTime();
-            out<<QObject::tr("记录")<<currenttime;
-            out<<qSetFieldWidth(10)<<left<<delay_time<<endl;
-            data.close();
-        }*/
-    }
+      }
 }
 
 void MainWindow::socket_Disconnected()
 {
     //发送按键失能
     ui->pushButton_Send->setEnabled(false);
+     ui->pushButton_2->setEnabled(false);
     //修改按键文字
     ui->pushButton_Connect->setText("连接");
     qDebug() << "Disconnected!";
@@ -124,5 +121,28 @@ void MainWindow::socket_Disconnected()
 
 void MainWindow::on_pushButton_clicked()
 {
+
     qDebug()<<"显示图像";
+    QDialog *plotdialog = new QDialog();
+    plotdialog->show();
+}
+
+
+void MainWindow::on_pushButton_2_clicked()
+{
+
+    qDebug()<<"循环了10次测试！";
+    for(int i=0;i<2;i++)
+    {
+        QTime startTime = QTime::currentTime();
+        qDebug()<<startTime;
+        QString str = startTime.toString("h:m:s.z");
+        qDebug()<<str;
+        socket->write(str.toUtf8());
+        //socket->flush();
+        socket->waitForBytesWritten();
+        socket_Read_Data();
+        Sleep(5000);
+    }
+
 }

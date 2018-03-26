@@ -29,7 +29,10 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_pushButton_2_clicked();
+
 private:
+    bool flag=1;
     Ui::MainWindow *ui;
     QTcpSocket *socket;
     QCustomPlot *timePlot;    //绘图功能还仍待添加
