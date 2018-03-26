@@ -3,6 +3,7 @@
 #include <QTime>
 #include <QFile>
 #include <QTextStream>
+#include <QDialog>
 #include <windows.h>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -106,20 +107,6 @@ void MainWindow::socket_Read_Data()
         //刷新显示
         ui->textEdit_Recv->setText(tr("The elapse time is ")+delay_time+tr("ms. "));
       }
-
-
-
-        //存到txt文本里(这部分暂未测试)
-        /*QFile data("data.txt");
-        if(data.open(QFile::WriteOnly|QFile::Truncate))
-        {
-            QTextStream out(&data);
-            QTime currenttime = QTime::currentTime();
-            out<<QObject::tr("记录")<<currenttime;
-            out<<qSetFieldWidth(10)<<left<<delay_time<<endl;
-            data.close();
-        }*/
-
 }
 
 void MainWindow::socket_Disconnected()
@@ -136,36 +123,10 @@ void MainWindow::on_pushButton_clicked()
 {
 
     qDebug()<<"显示图像";
-//    QCustomPlot *pricePlot = CreateAndInitPlotGraph(QString("Time(s)"),0,1200,QString("PRICE(RMB)"),0,20,
-//                                                          QRect(0,0,800,475),QString("PRICE"),fifthPageWidget);
-//    m_plotNameMap.insert("PRICE",pricePlot);
-//    m_plotRowNumMap.insert(4,pricePlot);
-//    m_plotNumAndName.insert(4,"PRICE");
-//    pricePlot->graph(0)->addData(0,0);
+    QDialog *plotdialog = new QDialog();
+    plotdialog->show();
 }
-/*
-QCustomPlot* MainWindow::CreateAndInitPlotGraph(QString xLabel,int xRangeL,int xRangeR,QString yLabel,int yRangeL,int yRangeR,QRect rect,QString name,QWidget *parent)
-{
-    QCustomPlot *customPlot = new QCustomPlot(parent);
-    customPlot->legend->setVisible(true);
-    QFont lengendFont = font();
-    lengendFont.setPointSize(9);
-    customPlot->legend->setFont(lengendFont);
-    customPlot->legend->setBrush(QBrush(QColor(255,255,255,230)));
-    customPlot->axisRect()->insetLayout()->setInsetAlignment(0,Qt::AlignTop|Qt::AlignRight);
-    customPlot->setGeometry(rect);
-    customPlot->xAxis->setLabel(xLabel);
-    customPlot->xAxis->setRange(xRangeL,xRangeR);
-    customPlot->yAxis->setLabel(yLabel);
-    customPlot->yAxis->setRange(yRangeL,yRangeR);
-    customPlot->addGraph();
-    customPlot->graph(0)->setPen(QPen(QColor(Qt::black)));
-    customPlot->graph(0)->setLineStyle(QCPGraph::lsStepLeft);// li san de dian
-    customPlot->graph(0)->setName(name);
 
-    return customPlot;
-}
-*/
 
 void MainWindow::on_pushButton_2_clicked()
 {
@@ -173,8 +134,16 @@ void MainWindow::on_pushButton_2_clicked()
     qDebug()<<"循环了10次测试！";
     for(int i=0;i<2;i++)
     {
-        on_pushButton_Send_clicked();
+        QTime startTime = QTime::currentTime();
+        qDebug()<<startTime;
+        QString str = startTime.toString("h:m:s.z");
+        qDebug()<<str;
+        socket->write(str.toUtf8());
+        //socket->flush();
+        socket->waitForBytesWritten();
+        socket_Read_Data();
         Sleep(5000);
+
 
     }
 
