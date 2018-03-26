@@ -37,4 +37,5 @@ HEADERS += \
     plotdialog.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    plotdialog.ui

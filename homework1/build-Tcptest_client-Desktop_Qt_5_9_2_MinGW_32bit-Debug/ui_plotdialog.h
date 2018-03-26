@@ -15,18 +15,23 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHeaderView>
+#include "qcustomplot.h"
 
 QT_BEGIN_NAMESPACE
 
 class Ui_plotdialog
 {
 public:
+    QCustomPlot *widget;
 
     void setupUi(QDialog *plotdialog)
     {
         if (plotdialog->objectName().isEmpty())
             plotdialog->setObjectName(QStringLiteral("plotdialog"));
         plotdialog->resize(400, 300);
+        widget = new QCustomPlot(plotdialog);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(39, 39, 331, 221));
 
         retranslateUi(plotdialog);
 

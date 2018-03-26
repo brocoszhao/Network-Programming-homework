@@ -22,17 +22,17 @@ public:
     plotdialog(QWidget *parent=0);
     ~plotdialog();
 
-    QCustomPlot* CreateAndInitPlotGraph(QString xLabel,int xRangeL,int xRangeR,QString yLabel,int yRangeL,int yRangeR,QRect rect);
-    void updateGraph(double point_x, double point_y);
-    void processPlotXAxisExpand(double point_x);
+   // QCustomPlot* CreateAndInitPlotGraph();
+   // void updateGraph(double point_x, double point_y);
+    //void processPlotXAxisExpand(double point_x);
 
 private:
     Ui::plotdialog *ui;
 
     double m_plotXAxisThrehold;
 
-    QHBoxLayout *mainLayout;
-    QCustomPlot* plot;
+   // QHBoxLayout *mainLayout;
+   // QCustomPlot* plot;
 };
 
 #endif // PLOTDIALOG_H
