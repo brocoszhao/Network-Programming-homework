@@ -18,7 +18,8 @@ class plotdialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit plotdialog(QWidget *parent = 0);
+    //explicit plotdialog(QWidget *parent = 0);
+    plotdialog(QWidget *parent=0);
     ~plotdialog();
 
     QCustomPlot* CreateAndInitPlotGraph(QString xLabel,int xRangeL,int xRangeR,QString yLabel,int yRangeL,int yRangeR,QRect rect);

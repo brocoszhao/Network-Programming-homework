@@ -10,7 +10,7 @@ plotdialog::plotdialog(QWidget *parent) :
     ui->setupUi(this);
      m_plotXAxisThrehold= XAXIS_BASE_RANGE;
     QHBoxLayout *mainLayout=new QHBoxLayout(this);
-    plot =CreateAndInitPlotGraph(QString("次数"),0,800,QString("网络延时"),-100,300,QRect(0,0,200,275));
+    plot =CreateAndInitPlotGraph(QString("次数"),0,100,QString("网络延时"),-10,300,QRect(0,0,200,275));
     mainLayout->addWidget(plot);
 }
 
@@ -21,7 +21,7 @@ plotdialog::~plotdialog()
 
 QCustomPlot* plotdialog::CreateAndInitPlotGraph(QString xLabel,int xRangeL,int xRangeR,QString yLabel,int yRangeL,int yRangeR,QRect rect)
 {
-    QCustomPlot *customPlot = new QCustomPlot();
+    QCustomPlot *customPlot = new QCustomPlot(this);
     customPlot->legend->setVisible(true);
     QFont lengendFont = font();
     lengendFont.setPointSize(9);
