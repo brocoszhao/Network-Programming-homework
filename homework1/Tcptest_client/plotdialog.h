@@ -7,6 +7,8 @@
 #include <QGridLayout>
 #include "mainwindow.h"
 
+#define XAXIS_BASE_RANGE (double)600
+
 namespace Ui {
 class plotdialog;
 }
@@ -20,11 +22,13 @@ public:
     ~plotdialog();
 
     QCustomPlot* CreateAndInitPlotGraph(QString xLabel,int xRangeL,int xRangeR,QString yLabel,int yRangeL,int yRangeR,QRect rect);
-    void updatepsPowerGraph(double point_x, double point_y);
+    void updateGraph(double point_x, double point_y);
     void processPlotXAxisExpand(double point_x);
 
 private:
     Ui::plotdialog *ui;
+
+    double m_plotXAxisThrehold;
 
     QHBoxLayout *mainLayout;
     QCustomPlot* plot;

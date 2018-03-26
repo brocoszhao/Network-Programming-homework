@@ -88,6 +88,7 @@ void MainWindow::on_pushButton_Send_clicked()
 void MainWindow::socket_Read_Data()
 {
     qDebug()<<"执行了一次readbuffer的操作！";
+    ui->textEdit_Recv->setText(tr("正在计时...."));
     QByteArray buffer;
     //读取缓冲区数据
     buffer = socket->readAll();
@@ -132,17 +133,20 @@ void MainWindow::on_pushButton_2_clicked()
 {
 
     qDebug()<<"循环了10次测试！";
-    for(int i=0;i<2;i++)
+    for(int i=0;i<10;i++)
     {
+
         QTime startTime = QTime::currentTime();
         qDebug()<<startTime;
-        QString str = startTime.toString("h:m:s.z");
+        QTime Nowtime = startTime.addMSecs(3000);
+        QString str = Nowtime.toString("h:m:s.z");
         qDebug()<<str;
         socket->write(str.toUtf8());
         //socket->flush();
         socket->waitForBytesWritten();
         socket_Read_Data();
-        Sleep(5000);
+        Sleep(3000);
+
     }
 
 }

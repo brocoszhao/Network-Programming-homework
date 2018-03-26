@@ -8,8 +8,9 @@ plotdialog::plotdialog(QWidget *parent) :
     ui(new Ui::plotdialog)
 {
     ui->setupUi(this);
+     m_plotXAxisThrehold= XAXIS_BASE_RANGE;
     QHBoxLayout *mainLayout=new QHBoxLayout(this);
-    plot =CreateAndInitPlotGraph(QString("Time(s)"),0,1200,QString("PS_POWER(KW)"),-1000,3000,QRect(0,0,800,475));
+    plot =CreateAndInitPlotGraph(QString("次数"),0,800,QString("网络延时"),-100,300,QRect(0,0,200,275));
     mainLayout->addWidget(plot);
 }
 
@@ -37,4 +38,21 @@ QCustomPlot* plotdialog::CreateAndInitPlotGraph(QString xLabel,int xRangeL,int x
     customPlot->graph(0)->setLineStyle(QCPGraph::lsStepLeft);// li san de dian
 
     return customPlot;
+}
+
+void plotdialog::updateGraph(double point_x, double point_y)
+
+       {
+       if(point_x > m_plotXAxisThrehold)
+        processPlotXAxisExpand(point_x);
+        plot->graph(0)->addData(point_x,point_y);
+        plot->replot();
+       }
+
+void plotdialog::processPlotXAxisExpand(double point_x)
+{
+      if(point_x != 0)
+            {m_plotXAxisThrehold = point_x;
+            plot->xAxis->setRange(0,1.25*m_plotXAxisThrehold);}
+    plot->replot();
 }
