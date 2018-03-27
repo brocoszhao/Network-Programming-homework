@@ -202,6 +202,8 @@ Makefile: ../Tcptest_client/Tcptest_client.pro D:/Qt_Creator/5.9.2/mingw53_32/mk
 		D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/modules/qt_lib_widgets_private.pri \
 		D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/modules/qt_lib_winextras.pri \
 		D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/modules/qt_lib_winextras_private.pri \
+		D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/modules/qt_lib_xlsx.pri \
+		D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/modules/qt_lib_xlsx_private.pri \
 		D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/modules/qt_lib_xml.pri \
 		D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/modules/qt_lib_xml_private.pri \
 		D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/modules/qt_lib_xmlpatterns.pri \
@@ -237,6 +239,7 @@ Makefile: ../Tcptest_client/Tcptest_client.pro D:/Qt_Creator/5.9.2/mingw53_32/mk
 		D:/Qt_Creator/5.9.2/mingw53_32/lib/qtmaind.prl \
 		D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5PrintSupport.prl \
 		D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5Widgets.prl \
+		D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5Xlsx.prl \
 		D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5Gui.prl \
 		D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5Network.prl \
 		D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5Core.prl
@@ -382,6 +385,8 @@ D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/modules/qt_lib_widgets.pri:
 D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/modules/qt_lib_widgets_private.pri:
 D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/modules/qt_lib_winextras.pri:
 D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/modules/qt_lib_winextras_private.pri:
+D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/modules/qt_lib_xlsx.pri:
+D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/modules/qt_lib_xlsx_private.pri:
 D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/modules/qt_lib_xml.pri:
 D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/modules/qt_lib_xml_private.pri:
 D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/modules/qt_lib_xmlpatterns.pri:
@@ -417,6 +422,7 @@ D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/features/lex.prf:
 D:/Qt_Creator/5.9.2/mingw53_32/lib/qtmaind.prl:
 D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5PrintSupport.prl:
 D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5Widgets.prl:
+D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5Xlsx.prl:
 D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5Gui.prl:
 D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5Network.prl:
 D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5Core.prl:

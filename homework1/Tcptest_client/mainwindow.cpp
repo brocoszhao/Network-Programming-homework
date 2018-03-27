@@ -5,6 +5,8 @@
 #include <QTextStream>
 #include <QDialog>
 #include <windows.h>
+#include <QtXlsx>
+#include "xlsxdocument.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -104,9 +106,27 @@ void MainWindow::socket_Read_Data()
         float elapsed = startTime.msecsTo(stopTime);
         //QString delay_time=QString::number(elapsed, 10);
         QString delay_time=QString("%1").arg(elapsed);
+        //生成excel文件
+        qDebug()<<"生成excel:log.xlsx";
+        QXlsx::Document xlsx("log.xlsx");//创建表格
+
+            /* 设置单元格样式 */
+          QXlsx::Format format1;
+          format1.setHorizontalAlignment(QXlsx::Format::AlignHCenter);//横向居中
+          format1.setVerticalAlignment(QXlsx::Format::AlignVCenter);//竖直居中
+          format1.setFontBold(true);//设置加粗
+          format1.setFontSize(15);  //设置字体大小
+          format1.setFontColor(Qt::black);//字体颜色
+            //xlsx.mergeCells("B1:C1"); //合并单元格
+          xlsx.write(xx, yy, delay_time, format1);//在第一行第二列写入内容
+          xx++;
+          qDebug()<<xx;
+          xlsx.saveAs("log.xlsx");//保存
         qDebug()<<"Elapse Time is "<<elapsed<<"ms";
         //刷新显示
         ui->textEdit_Recv->setText(tr("The elapse time is ")+delay_time+tr("ms. "));
+
+
       }
 }
 
@@ -149,4 +169,27 @@ void MainWindow::on_pushButton_2_clicked()
 
     }
 
+}
+
+void MainWindow::on_pushButton_excel_clicked()
+{
+    qDebug()<<"生成excel";
+    QXlsx::Document xlsx("book1.xlsx");//创建表格
+
+        /* 设置单元格样式 */
+      QXlsx::Format format1;
+      format1.setHorizontalAlignment(QXlsx::Format::AlignHCenter);//横向居中
+      format1.setVerticalAlignment(QXlsx::Format::AlignVCenter);//竖直居中
+      format1.setFontBold(true);//设置加粗
+      format1.setFontSize(15);  //设置字体大小
+      format1.setFontColor(Qt::black);//字体颜色
+        //xlsx.mergeCells("B1:C1"); //合并单元格
+      xlsx.write(1, 2, "检测项目", format1);//在第一行第二列写入内容
+      xlsx.saveAs("book1.xlsx");//保存
+//    // xlsx
+//    QXlsx::Document xlsx;
+//    // set A1 cell “hello world”
+//    xlsx.write("A1", "Hello Qt!");
+//    // save file.
+//    xlsx.saveAs("Test.xlsx");
 }

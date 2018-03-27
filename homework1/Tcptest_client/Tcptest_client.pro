@@ -8,6 +8,7 @@ QT       += core gui
 QT       += network
 QT       += widgets
 QT       += printsupport
+QT       += xlsx
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Tcptest_client

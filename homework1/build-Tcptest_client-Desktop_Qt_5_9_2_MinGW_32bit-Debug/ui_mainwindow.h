@@ -39,6 +39,7 @@ public:
     QPushButton *pushButton_Send;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
+    QPushButton *pushButton_excel;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -73,14 +74,17 @@ public:
         pushButton_Send->setGeometry(QRect(300, 100, 75, 23));
         pushButton = new QPushButton(centralWidget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(40, 100, 75, 23));
+        pushButton->setGeometry(QRect(10, 100, 75, 23));
         pushButton_2 = new QPushButton(centralWidget);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
         pushButton_2->setGeometry(QRect(194, 100, 91, 23));
+        pushButton_excel = new QPushButton(centralWidget);
+        pushButton_excel->setObjectName(QStringLiteral("pushButton_excel"));
+        pushButton_excel->setGeometry(QRect(90, 100, 80, 20));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 400, 23));
+        menuBar->setGeometry(QRect(0, 0, 400, 22));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -103,6 +107,7 @@ public:
         pushButton_Send->setText(QApplication::translate("MainWindow", "\345\215\225\346\254\241\345\217\221\351\200\201", Q_NULLPTR));
         pushButton->setText(QApplication::translate("MainWindow", "\345\233\276\345\203\217", Q_NULLPTR));
         pushButton_2->setText(QApplication::translate("MainWindow", "\345\244\232\346\254\241\345\217\221\351\200\201(10)", Q_NULLPTR));
+        pushButton_excel->setText(QApplication::translate("MainWindow", "\347\224\237\346\210\220Excel", Q_NULLPTR));
     } // retranslateUi
 
 };

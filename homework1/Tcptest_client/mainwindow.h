@@ -31,8 +31,11 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_pushButton_excel_clicked();
+
 private:
     bool flag=1;
+    int xx=1,yy=1;
     Ui::MainWindow *ui;
     QTcpSocket *socket;
     QCustomPlot *timePlot;    //绘图功能还仍待添加

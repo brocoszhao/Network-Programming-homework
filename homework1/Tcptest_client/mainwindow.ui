@@ -99,7 +99,7 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>10</x>
       <y>100</y>
       <width>75</width>
       <height>23</height>
@@ -122,6 +122,19 @@
      <string>多次发送(10)</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton_excel">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>100</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>生成Excel</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -129,7 +142,7 @@
      <x>0</x>
      <y>0</y>
      <width>400</width>
-     <height>23</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
