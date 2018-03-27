@@ -7,9 +7,10 @@ plotdialog::plotdialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::plotdialog)
 {
-    ui->setupUi(this);
+     ui->setupUi(this);
      m_plotXAxisThrehold= XAXIS_BASE_RANGE;
-     this->ui->widget->replot();
+     ui->widget->show();
+
     //QHBoxLayout *mainLayout=new QHBoxLayout(this);
     //plot =CreateAndInitPlotGraph();
     //mainLayout->addWidget(plot);

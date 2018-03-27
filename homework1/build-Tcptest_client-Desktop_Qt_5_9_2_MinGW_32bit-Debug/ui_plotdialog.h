@@ -14,7 +14,9 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QWidget>
 #include "qcustomplot.h"
 
 QT_BEGIN_NAMESPACE
@@ -22,6 +24,8 @@ QT_BEGIN_NAMESPACE
 class Ui_plotdialog
 {
 public:
+    QWidget *horizontalLayoutWidget;
+    QHBoxLayout *horizontalLayout;
     QCustomPlot *widget;
 
     void setupUi(QDialog *plotdialog)
@@ -29,9 +33,17 @@ public:
         if (plotdialog->objectName().isEmpty())
             plotdialog->setObjectName(QStringLiteral("plotdialog"));
         plotdialog->resize(400, 300);
-        widget = new QCustomPlot(plotdialog);
+        horizontalLayoutWidget = new QWidget(plotdialog);
+        horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
+        horizontalLayoutWidget->setGeometry(QRect(29, 29, 341, 251));
+        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        widget = new QCustomPlot(horizontalLayoutWidget);
         widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(39, 39, 331, 221));
+
+        horizontalLayout->addWidget(widget);
+
 
         retranslateUi(plotdialog);
 
