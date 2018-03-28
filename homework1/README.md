@@ -9,4 +9,6 @@
 - [X] 导出日志文件(xlsx)
 - [X] 增加可视化组件
 - [X] Excel VBA程序，对数据进行分析处理
-- [ ] 博客撰写
+- [X] 博客撰写
+
+博客教程见[http://www.cnblogs.com/yunlambert/p/8663381.html](http://www.cnblogs.com/yunlambert/p/8663381.html)
