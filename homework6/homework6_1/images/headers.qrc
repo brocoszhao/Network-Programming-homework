@@ -1,0 +1,14 @@
+<!DOCTYPE RCC>
+<RCC version="1.0"/>
+  <qresource prefix="/">
+   <file>images/spqy.png</file>
+   <file>images/ymrl.png</file>
+   <file>images/qq.png</file>
+   <file>images/Cherry.png</file>
+   <file>images/dr.png</file>
+   <file>images/jj.png</file>
+   <file>images/lswh.png</file>
+   <file>images/qmnn.png</file>
+   <file>images/wy.png</file>
+  </qresource>
+
