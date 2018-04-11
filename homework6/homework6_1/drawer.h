@@ -3,12 +3,26 @@
 
 #include<QToolBox>
 #include<QToolButton>
+#include"widget.h"
 
 class Drawer : public QToolBox
 {
     Q_OBJECT
 public:
     Drawer(QWidget *parent=0,Qt::WindowFlags f=0);
+
+private slots:
+    void showChatWidget1();
+    void showChatWidget2();
+    void showChatWidget3();
+    void showChatWidget4();
+    void showChatWidget5();
+    void showChatWidget6();
+    void showChatWidget7();
+    void showChatWidget8();
+    void showChatWidget9();
+
+    //showChatWidget.为显示各个用户聊天窗的函数
 
 private:
     QToolButton *toolBtn1;
@@ -20,6 +34,18 @@ private:
     QToolButton *toolBtn7;
     QToolButton *toolBtn8;
     QToolButton *toolBtn9;
+
+    Widget *chatWidget1;
+    Widget *chatWidget2;
+    Widget *chatWidget3;
+    Widget *chatWidget4;
+    Widget *chatWidget5;
+    Widget *chatWidget6;
+    Widget *chatWidget7;
+    Widget *chatWidget8;
+    Widget *chatWidget9;
+
+    //chatWidget.为群里9个用户各自对应的聊天窗口对象的指针
 };
 
 #endif // DRAWER_H
