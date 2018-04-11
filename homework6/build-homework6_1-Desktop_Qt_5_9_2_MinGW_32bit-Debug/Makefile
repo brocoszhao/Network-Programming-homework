@@ -212,6 +212,7 @@ Makefile: ../homework6_1/homework6_1.pro D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/
 		D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/features/qt_config.prf \
 		D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/win32-g++/qmake.conf \
 		D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/features/exclusive_builds.prf \
 		D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/features/toolchain.prf \
 		D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/features/default_pre.prf \
@@ -238,6 +239,7 @@ Makefile: ../homework6_1/homework6_1.pro D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/
 		D:/Qt_Creator/5.9.2/mingw53_32/lib/qtmaind.prl \
 		D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5Widgets.prl \
 		D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5Gui.prl \
+		D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5Network.prl \
 		D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5Core.prl
 	$(QMAKE) -o Makefile ..\homework6_1\homework6_1.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/features/spec_pre.prf:
@@ -391,6 +393,7 @@ D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/features/qt_functions.prf:
 D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/features/qt_config.prf:
 D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/win32-g++/qmake.conf:
 D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/features/spec_post.prf:
+.qmake.stash:
 D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/features/exclusive_builds.prf:
 D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/features/toolchain.prf:
 D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/features/default_pre.prf:
@@ -417,6 +420,7 @@ D:/Qt_Creator/5.9.2/mingw53_32/mkspecs/features/lex.prf:
 D:/Qt_Creator/5.9.2/mingw53_32/lib/qtmaind.prl:
 D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5Widgets.prl:
 D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5Gui.prl:
+D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5Network.prl:
 D:/Qt_Creator/5.9.2/mingw53_32/lib/Qt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\homework6_1\homework6_1.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"

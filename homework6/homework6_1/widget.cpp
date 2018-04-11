@@ -159,4 +159,9 @@ QString Widget::getMsg()
     ui->msgTxtEdit->clear();
     ui->msgTxtEdit->setFocus();
     return msg;
+}
 
+void Widget::on_sendBtn_clicked()
+{
+    sndMsg(Msg);
+}
