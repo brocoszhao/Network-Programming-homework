@@ -27,14 +27,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         widget.cpp \
-    drawer.cpp
+    drawer.cpp \
+    server.cpp
 
 HEADERS += \
         widget.h \
-    drawer.h
+    drawer.h \
+    server.h
 
 FORMS += \
-        widget.ui
+        widget.ui \
+    client.ui \
+    server.ui
 
 RESOURCES += \
     images/headers.qrc \
