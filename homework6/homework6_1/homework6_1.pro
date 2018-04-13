@@ -28,12 +28,14 @@ SOURCES += \
         main.cpp \
         widget.cpp \
     drawer.cpp \
-    server.cpp
+    server.cpp \
+    client.cpp
 
 HEADERS += \
         widget.h \
     drawer.h \
-    server.h
+    server.h \
+    client.h
 
 FORMS += \
         widget.ui \

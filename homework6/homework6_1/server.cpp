@@ -1,22 +1,30 @@
-#include<QFile>
-#include<QTcpServer>
-#include<QTcpSocket>
-#include<QMessageBox>
-#include<QFileDialog>
-#include<QDebug>
+#include "server.h"
+#include "ui_server.h"
 
-Server::Server(QWidget *parent):
+#include <QFile>
+#include <QTcpServer>
+#include <QTcpSocket>
+#include <QMessageBox>
+#include <QFileDialog>
+#include <QDebug>
+
+Server::Server(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Server)
 {
     ui->setupUi(this);
     setFixedSize(400,207);
 
-    tPort=5555;
-    tSrv=new QTcpserver(this);
-    connect(tSrv,SIGNAL(newConnection()),this,SLOT(sndMsg()));
+    tPort = 5555;
+    tSrv = new QTcpServer(this);
+    connect(tSrv, SIGNAL(newConnection()), this, SLOT(sndMsg()));
 
     initSrv();
+}
+
+Server::~Server()
+{
+    delete ui;
 }
 
 void Server::initSrv()
@@ -60,7 +68,6 @@ void Server::sndMsg()
     outBlock.resize(0);
 }
 
-
 void Server::updClntProgress(qint64 numBytes)
 {
     qApp->processEvents();
@@ -90,7 +97,6 @@ void Server::updClntProgress(qint64 numBytes)
         ui->sStatusLbl->setText(tr("传送文件 %1 成功").arg(theFileName));
     }
 }
-
 void Server::on_sOpenBtn_clicked()
 {
     fileName = QFileDialog::getOpenFileName(this);
