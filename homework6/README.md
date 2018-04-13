@@ -17,3 +17,6 @@
 ![Snipaste_2018-04-11_21-17-25.png](https://upload-images.jianshu.io/upload_images/7154520-50ab7f018809731a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ![Snipaste_2018-04-11_21-17-42.png](https://upload-images.jianshu.io/upload_images/7154520-dc03013143e9442c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+
+！[](https://img.shields.io/badge/{QtChat}-{building}-{orange}.svg)
