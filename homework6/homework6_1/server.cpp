@@ -90,3 +90,51 @@ void Server::updClntProgress(qint64 numBytes)
         ui->sStatusLbl->setText(tr("传送文件 %1 成功").arg(theFileName));
     }
 }
+
+void Server::on_sOpenBtn_clicked()
+{
+    fileName = QFileDialog::getOpenFileName(this);
+    if(!fileName.isEmpty())
+    {
+        theFileName = fileName.right(fileName.size() - fileName.lastIndexOf('/')-1);
+        ui->sStatusLbl->setText(tr("要传送的文件为：%1 ").arg(theFileName));
+        ui->sSendBtn->setEnabled(true);
+        ui->sOpenBtn->setEnabled(false);
+    }
+}
+
+void Server::on_sSendBtn_clicked()
+{
+    if(!tSrv->listen(QHostAddress::Any,tPort))//开始监听
+    {
+        qDebug() << tSrv->errorString();
+        close();
+        return;
+    }
+
+    ui->sStatusLbl->setText(tr("等待对方接收... ..."));
+    emit sndFileName(theFileName);
+}
+
+void Server::on_sCloseBtn_clicked()
+{
+    if(tSrv->isListening())
+    {
+        tSrv->close();
+        if (locFile->isOpen())
+            locFile->close();
+        clntConn->abort();
+    }
+    close();
+}
+
+void Server::refused()
+{
+    tSrv->close();
+    ui->sStatusLbl->setText(tr("对方拒绝接收！"));
+}
+
+void Server::closeEvent(QCloseEvent *)
+{
+    on_sCloseBtn_clicked();
+}
