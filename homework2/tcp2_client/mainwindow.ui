@@ -30,8 +30,8 @@
    <widget class="QPushButton" name="pushButton_Send">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>370</y>
+      <x>310</x>
+      <y>330</y>
       <width>80</width>
       <height>20</height>
      </rect>
@@ -90,19 +90,19 @@
     <property name="geometry">
      <rect>
       <x>260</x>
-      <y>120</y>
+      <y>110</y>
       <width>121</width>
-      <height>141</height>
+      <height>161</height>
      </rect>
     </property>
    </widget>
    <widget class="QTextEdit" name="textEdit_Recv">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>120</y>
+      <x>10</x>
+      <y>110</y>
       <width>231</width>
-      <height>241</height>
+      <height>161</height>
      </rect>
     </property>
    </widget>
@@ -110,7 +110,7 @@
     <property name="geometry">
      <rect>
       <x>290</x>
-      <y>90</y>
+      <y>80</y>
       <width>54</width>
       <height>20</height>
      </rect>
@@ -118,6 +118,113 @@
     <property name="text">
      <string>发送窗口</string>
     </property>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>280</y>
+      <width>386</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QFontComboBox" name="fontComboBox"/>
+     </item>
+     <item>
+      <widget class="QComboBox" name="comboBox">
+       <item>
+        <property name="text">
+         <string>8</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>9</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>10</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>11</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>12</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>13</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>14</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>15</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>16</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>17</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>18</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="toolButton_2">
+       <property name="text">
+        <string>...</string>
+       </property>
+       <property name="icon">
+        <iconset resource="images.qrc">
+         <normaloff>:/images/bold.png</normaloff>:/images/bold.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="toolButton_3">
+       <property name="text">
+        <string>...</string>
+       </property>
+       <property name="icon">
+        <iconset resource="images.qrc">
+         <normaloff>:/images/italic.png</normaloff>:/images/italic.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="toolButton">
+       <property name="text">
+        <string>...</string>
+       </property>
+       <property name="icon">
+        <iconset resource="images.qrc">
+         <normaloff>:/images/color.png</normaloff>:/images/color.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -141,6 +248,8 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="images.qrc"/>
+ </resources>
  <connections/>
 </ui>

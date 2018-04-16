@@ -1,6 +1,7 @@
 //mainwindow.cpp
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QColorDialog>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -13,6 +14,8 @@ MainWindow::MainWindow(QWidget *parent) :
     //连接信号槽
     QObject::connect(socket, &QTcpSocket::readyRead, this, &MainWindow::socket_Read_Data);
     QObject::connect(socket, &QTcpSocket::disconnected, this, &MainWindow::socket_Disconnected);
+    QObject::connect(ui->textEdit_Send,SIGNAL(currentCharFormatChanged(QTextCharFormat)),
+                     this,SLOT(curFmtChanged(const QTextCharFormat)));
 
     ui->pushButton_Send->setEnabled(false);
     ui->lineEdit_IP->setText("127.0.0.1");
@@ -70,7 +73,7 @@ void MainWindow::on_pushButton_Send_clicked()
 {
     qDebug() << "Send: " << ui->textEdit_Send->toPlainText();
      //获取文本框内容并以ASCII码形式发送
-    socket->write(ui->textEdit_Send->toPlainText().toLatin1());
+    socket->write(ui->textEdit_Send->toPlainText().toUtf8());
     socket->flush();
 }
 
@@ -82,7 +85,7 @@ void MainWindow::socket_Read_Data()
     if(!buffer.isEmpty())
     {
         QString str = ui->textEdit_Recv->toPlainText();
-        str+=tr(buffer);
+        str+=tr(buffer)+"\n";
         //刷新显示
         ui->textEdit_Recv->setText(str);
     }
@@ -95,4 +98,72 @@ void MainWindow::socket_Disconnected()
     //修改按键文字
     ui->pushButton_Connect->setText("连接");
     qDebug() << "Disconnected!";
+}
+
+void MainWindow::on_fontComboBox_currentFontChanged(const QFont &f)
+{
+   ui->textEdit_Send->setCurrentFont(f);
+   ui->textEdit_Send->setFocus();
+   ui->textEdit_Recv->setCurrentFont(f);
+   ui->textEdit_Recv->setFocus();
+}
+
+void MainWindow::on_comboBox_currentIndexChanged(const QString &arg1)
+{
+    ui->textEdit_Send->setFontPointSize(arg1.toDouble());
+    ui->textEdit_Send->setFocus();
+    ui->textEdit_Recv->setFontPointSize(arg1.toDouble());
+    ui->textEdit_Recv->setFocus();
+}
+
+void MainWindow::on_toolButton_2_clicked(bool checked)
+{
+    if(checked)
+    {
+        ui->textEdit_Send->setFontWeight(QFont::Bold);
+        ui->textEdit_Recv->setFontWeight(QFont::Bold);
+    }
+    else
+    {
+        ui->textEdit_Send->setFontWeight(QFont::Normal);
+        ui->textEdit_Recv->setFontWeight(QFont::Normal);
+    }
+    ui->textEdit_Send->setFocus();
+    ui->textEdit_Recv->setFocus();
+}
+
+void MainWindow::on_toolButton_3_clicked(bool checked)
+{
+    ui->textEdit_Send->setFontItalic(checked);
+    ui->textEdit_Recv->setFontItalic(checked);
+    ui->textEdit_Send->setFocus();
+    ui->textEdit_Recv->setFocus();
+}
+
+void MainWindow::on_toolButton_clicked()
+{
+    color=QColorDialog::getColor(color,this);
+    if(color.isValid()){
+        ui->textEdit_Send->setTextColor(color);
+        ui->textEdit_Recv->setTextColor(color);
+        ui->textEdit_Send->setFocus();
+        ui->textEdit_Recv->setFocus();
+    }
+}
+
+void MainWindow::curFmtChanged(const QTextCharFormat &fmt)
+{
+    ui->fontComboBox->setCurrentFont(fmt.font());
+    if(fmt.fontPointSize()<8){
+        ui->comboBox->setCurrentIndex(1);
+    }
+    else
+    {
+        ui->comboBox->setCurrentIndex(ui->comboBox->findText(QString::
+                                                           number(fmt.fontPointSize())));
+    }
+    ui->toolButton_2->setChecked(fmt.font().bold());
+    ui->toolButton_3->setChecked(fmt.font().italic());
+    color=fmt.foreground().color();
+
 }

@@ -63,7 +63,7 @@ void MainWindow::on_pushButton_Send_clicked()
 {
     qDebug() << "Send: " << ui->textEdit_Send->toPlainText();
     //获取文本框内容并以ASCII码形式发送
-    socket->write(ui->textEdit_Send->toPlainText().toLatin1());
+    socket->write(ui->textEdit_Send->toPlainText().toUtf8());
     socket->flush();
 }
 
@@ -88,7 +88,7 @@ void MainWindow::socket_Read_Data()
     if(!buffer.isEmpty())
     {
         QString str = ui->textEdit_Recv->toPlainText();
-        str+=tr(buffer);
+        str+=tr(buffer)+"\n";
         //刷新显示
         ui->textEdit_Recv->setText(str);
     }
