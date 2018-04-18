@@ -7,6 +7,8 @@
 #include <QTextCharFormat>
 #include <QTcpSocket>
 
+class Server;
+
 namespace Ui {
 class MainWindow;
 }
@@ -18,6 +20,9 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+
+protected:
+    void hasPendingFile(QString usrname,QString srvaddr,QString clntaddr,QString filename);
 
 private slots:
 
@@ -41,10 +46,17 @@ private slots:
 
     void curFmtChanged(const QTextCharFormat &fmt);
 
+    void getFileName(QString);
+
+    void on_toolButton_4_clicked();
+
 private:
     Ui::MainWindow *ui;
     QTcpSocket *socket;
     QColor color;
+
+    QString fileName;
+    Server *srv;
 };
 
 #endif // MAINWINDOW_H

@@ -1,7 +1,10 @@
 //mainwindow.cpp
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "server.h"
+#include "client.h"
 #include <QColorDialog>
+#include <QFileDialog>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -10,6 +13,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     socket = new QTcpSocket();
+
+    srv=new Server(this);
+    connect(srv,SIGNAL(sndFileName(QString),this,SLOT(getFileName(QString)));
 
     //连接信号槽
     QObject::connect(socket, &QTcpSocket::readyRead, this, &MainWindow::socket_Read_Data);
@@ -166,4 +172,17 @@ void MainWindow::curFmtChanged(const QTextCharFormat &fmt)
     ui->toolButton_3->setChecked(fmt.font().italic());
     color=fmt.foreground().color();
 
+}
+
+void MainWindow::getFileName(QString name)
+{
+    fileName=name;
+    sndMsg(FileName);
+}
+
+
+void MainWindow::on_toolButton_4_clicked()
+{
+    srv->show();
+    srv->initSrv();)
 }
