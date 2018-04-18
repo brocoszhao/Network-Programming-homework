@@ -5,6 +5,8 @@
 #include <QMainWindow>
 #include <QTcpServer>
 #include <QTcpSocket>
+#include<QColorDialog>
+#include<QTextCharFormat>
 
 
 namespace Ui {
@@ -30,10 +32,23 @@ private slots:
 
     void socket_Disconnected();
 
+    void on_fontComboBox_currentFontChanged(const QFont &f);
+
+    void on_comboBox_currentIndexChanged(const QString &arg1);
+
+    void on_toolButton_2_clicked(bool checked);
+
+    void on_toolButton_clicked(bool checked);
+
+    void on_toolButton_3_clicked();
+
+    void curFmtChanged(const QTextCharFormat &fmt);
+
 private:
     Ui::MainWindow *ui;
     QTcpServer* server;
     QTcpSocket* socket;
+    QColor color;
 };
 
 #endif // MAINWINDOW_H

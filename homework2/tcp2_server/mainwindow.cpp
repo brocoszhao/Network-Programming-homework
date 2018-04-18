@@ -14,6 +14,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //连接信号槽
     connect(server,&QTcpServer::newConnection,this,&MainWindow::server_New_Connect);
+
+    QObject::connect(ui->textEdit_Send,SIGNAL(currentCharFormatChanged(QTextCharFormat)),this,
+                     SLOT(curFmtChanged(const QTextCharFormat)));
 }
 
 MainWindow::~MainWindow()
@@ -99,4 +102,71 @@ void MainWindow::socket_Disconnected()
     //发送按键失能
     ui->pushButton_Send->setEnabled(false);
     qDebug() << "Disconnected!";
+}
+
+void MainWindow::on_fontComboBox_currentFontChanged(const QFont &f)
+{
+    ui->textEdit_Send->setCurrentFont(f);
+    ui->textEdit_Send->setFocus();
+    ui->textEdit_Recv->setCurrentFont(f);
+    ui->textEdit_Recv->setFocus();
+}
+
+void MainWindow::on_comboBox_currentIndexChanged(const QString &arg1)
+{
+    ui->textEdit_Send->setFontPointSize(arg1.toDouble());
+    ui->textEdit_Send->setFocus();
+    ui->textEdit_Recv->setFontPointSize(arg1.toDouble());
+    ui->textEdit_Recv->setFocus();
+}
+
+void MainWindow::on_toolButton_2_clicked(bool checked)
+{
+    if(checked)
+    {
+        ui->textEdit_Send->setFontWeight(QFont::Bold);
+        ui->textEdit_Recv->setFontWeight(QFont::Bold);
+    }
+    else
+    {
+        ui->textEdit_Send->setFontWeight(QFont::Normal);
+        ui->textEdit_Recv->setFontWeight(QFont::Normal);
+    }
+    ui->textEdit_Send->setFocus();
+    ui->textEdit_Recv->setFocus();
+}
+
+
+void MainWindow::on_toolButton_clicked(bool checked)
+{
+    ui->textEdit_Send->setFontItalic(checked);
+    ui->textEdit_Send->setFocus();
+    ui->textEdit_Recv->setFontItalic(checked);
+    ui->textEdit_Recv->setFocus();
+}
+
+void MainWindow::on_toolButton_3_clicked()
+{
+    color = QColorDialog::getColor(color,this);
+    if(color.isValid())
+    {
+        ui->textEdit_Send->setTextColor(color);
+        ui->textEdit_Send->setFocus();
+        ui->textEdit_Recv->setTextColor(color);
+        ui->textEdit_Recv->setFocus();
+    }
+}
+
+void MainWindow::curFmtChanged(const QTextCharFormat &fmt)
+{
+    ui->fontComboBox->setCurrentFont(fmt.font());
+    if(fmt.fontPointSize()<8){
+        ui->comboBox->setCurrentIndex(1);
+    }
+    else
+    {
+        ui->toolButton_2->setChecked(fmt.font().bold());
+        ui->toolButton->setChecked(fmt.font().italic());
+        color=fmt.foreground().color();
+    }
 }
