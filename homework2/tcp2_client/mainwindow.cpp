@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
     socket = new QTcpSocket();
 
     srv=new Server(this);
-    connect(srv,SIGNAL(sndFileName(QString),this,SLOT(getFileName(QString)));
+    //connect(srv,SIGNAL(sndFileName(QString),this,SLOT(getFileName(QString)));
 
     //连接信号槽
     QObject::connect(socket, &QTcpSocket::readyRead, this, &MainWindow::socket_Read_Data);
@@ -174,6 +174,7 @@ void MainWindow::curFmtChanged(const QTextCharFormat &fmt)
 
 }
 
+/*
 void MainWindow::getFileName(QString name)
 {
     fileName=name;
@@ -184,5 +185,6 @@ void MainWindow::getFileName(QString name)
 void MainWindow::on_toolButton_4_clicked()
 {
     srv->show();
-    srv->initSrv();)
+    srv->initSrv();
 }
+*/
