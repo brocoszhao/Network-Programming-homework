@@ -36,13 +36,13 @@ void MySql::createtable()
     else
         qDebug()<<QObject::tr("数据库表创建失败！\n");
     /*创建root用户*/
-    query->exec("insert into user value(root2, root2)");
+    query->exec("insert into user values('root2', 'root2')");
 }
 
 
 bool MySql::loguser(QString name, QString passward)
 {
-    QString str=QString("select * from user where name=%1 and passward=%2").arg(name).arg(passward);
+    QString str=QString("select * from user where name='%1' and passward='%2'").arg(name).arg(passward);
     qDebug()<<str;
     query=new QSqlQuery;
     query->exec(str);
@@ -57,15 +57,16 @@ bool MySql::loguser(QString name, QString passward)
 
 bool MySql::signup(QString name,QString passward)
 {
-    QString str=QString("select * from user where name=%1").arg(name);
+    QString str=QString("select * from user where name='%1'").arg(name);
     qDebug()<<str;
     query=new QSqlQuery;
     query->exec(str);
     query->last();
     int record=query->at()+1;
-    if(record!=1)
+    qDebug()<<record;
+    if(record==1)
         return false;
-    QString str2=QString("insert into user value(%1,%2)").arg(name).arg(passward);
+    QString str2=QString("insert into user values('%1','%2')").arg(name).arg(passward);
     qDebug()<<str2;
     bool ret=query->exec(str2);
     qDebug()<<ret;
