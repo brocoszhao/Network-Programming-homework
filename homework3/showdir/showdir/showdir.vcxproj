@@ -115,10 +115,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\dir.c" />
+    <ClCompile Include="..\mydirent.c" />
+    <ClCompile Include="..\mydirent.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\dirent2.h" />
+    <ClInclude Include="..\mydirent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

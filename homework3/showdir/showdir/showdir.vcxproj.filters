@@ -15,12 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\dir.c">
+    <ClCompile Include="..\mydirent.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\mydirent.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\dirent2.h">
+    <ClInclude Include="..\mydirent.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

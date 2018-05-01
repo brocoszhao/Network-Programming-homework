@@ -1,2 +1,3 @@
-﻿  dir.c
+﻿  mydirent.cpp
+e:\workstation\github\network-programming-homework\homework3\showdir\mydirent.h(88): warning C4244: “=”: 从“DWORD”转换到“unsigned short”，可能丢失数据
   showdir.vcxproj -> E:\Workstation\Github\Network-Programming-homework\homework3\showdir\Debug\showdir.exe
