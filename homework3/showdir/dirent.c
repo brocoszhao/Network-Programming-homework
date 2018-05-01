@@ -2,21 +2,23 @@
 #include <windows.h>  
 #include <stdlib.h>
 #include <string.h>
-#include "dirent.h"
+#include "mydirent.h"
   
 static HANDLE hFind;  
 #define MAX_LEN 65535
   
-DIR *opendir(const char *name)  
+DIR *opendir()  
 {  
     DIR *dir;  
     WIN32_FIND_DATA FindData;  
-    char namebuf[512];  
   
 	printf("there is a bug！！！！");
-    printf(namebuf, "%s\\*.*",name);  
-  
-    hFind = FindFirstFile(namebuf, &FindData );   
+
+	LPCTSTR lpFileName = L"E:\\";
+
+	char namebuf[1024];
+	strcpy_s(namebuf, )
+    hFind = FindFirstFile("e:\\Workstation", &FindData );   
     if(hFind == INVALID_HANDLE_VALUE)   
     {  
         printf("FindFirstFile failed (%d)\n", GetLastError());  
@@ -85,62 +87,35 @@ int closedir(DIR *d)
 } 
 
 
-//int main()
-//{
-//	DIR *dir;
-//	struct dirent *ptr;
-//	char *flow[MAX_LEN];
-//	int num = 0, i = 0;
-//
-//	if ((dir = opendir("./data")) == NULL)
-//	{
-//		printf("出现了错误！");
-//		perror("cannot open the dir");
-//		system("pause");
-//		exit(1);
-//	}
-//
-//	while ((ptr = readdir(dir)) != NULL)
-//	{
-//		flow[num] = (char*)malloc(sizeof(char));
-//		strcpy(flow[num], ptr->d_name);
-//		num++;
-//	}
-//
-//	for (int i = 0; i < num; i++)
-//	{
-//		printf("%s\n", flow[i]);
-//	}
-//
-//	closedir(dir);
-//
-//	system("pause");
-//}
-
-int main(int argc, char *argv[])
+int main()
 {
 	DIR *dir;
-	struct dirent* mydirent;
-	if (argc != 2)
+	struct dirent *ptr;
+	char *flow[MAX_LEN];
+	int num = 0, i = 0;
+
+	if ((dir = opendir()) == NULL)
 	{
-		printf("usage:directory_name");
+		printf("出现了错误！");
+		perror("cannot open the dir");
 		system("pause");
-		return -1;
+		exit(1);
 	}
-	if ((dir = opendir(argv[1])) != NULL)
+
+	while ((ptr = readdir(dir)) != NULL)
 	{
-		while ((mydirent = readdir(dir)) != NULL)
-		{
-			printf("%s \n", mydirent->d_name);
-			system("pause");
-		}
+		flow[num] = (char*)malloc(sizeof(char));
+		int len = strlen(ptr->d_name);
+		strcpy_s(flow[num], len, ptr->d_name);
+		num++;
 	}
-	else {
-		printf("cannot open %s", argv[1]);
-		system("pause");
-		return -1;
+
+	for (int i = 0; i < num; i++)
+	{
+		printf("%s\n", flow[i]);
 	}
+
 	closedir(dir);
+
 	system("pause");
-	return 0;
 }
