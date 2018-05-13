@@ -1,0 +1,85 @@
+﻿  server.c
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(47): error C2143: 语法错误: 缺少“;”(在“=”的前面)
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(47): error C2059: 语法错误:“=”
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(48): error C2059: 语法错误:“}”
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(50): error C2079: “get_qdata”使用未定义的 struct“qdata”
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(51): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(59): error C2059: 语法错误:“类型”
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(67): error C2079: “qrydata”使用未定义的 struct“qdata”
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(68): error C2224: “.qrslt”的左侧必须具有结构/联合类型
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(70): error C2224: “.qlst_char”的左侧必须具有结构/联合类型
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(72): error C2440: “return”: 无法从“int”转换为“qdata”
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(80): error C2143: 语法错误: 缺少“)”(在“*”的前面)
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(80): error C2143: 语法错误: 缺少“{”(在“*”的前面)
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(80): error C2059: 语法错误:“)”
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(81): error C2054: 在“list”之后应输入“(”
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(89): error C2143: 语法错误: 缺少“)”(在“*”的前面)
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(89): error C2081: “socket_list”: 形参表中的名称非法
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(89): error C2143: 语法错误: 缺少“{”(在“*”的前面)
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(89): error C2059: 语法错误:“)”
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(90): error C2054: 在“list”之后应输入“(”
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(100): error C2143: 语法错误: 缺少“)”(在“*”的前面)
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(100): error C2081: “socket_list”: 形参表中的名称非法
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(100): error C2143: 语法错误: 缺少“{”(在“*”的前面)
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(100): error C2059: 语法错误:“)”
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(101): error C2054: 在“list”之后应输入“(”
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(111): error C2143: 语法错误: 缺少“)”(在“*”的前面)
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(111): error C2143: 语法错误: 缺少“{”(在“*”的前面)
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(111): error C2371: “fd_set”: 重定义；不同的基类型
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\um\winsock.h(68): note: 参见“fd_set”的声明
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(111): error C2143: 语法错误: 缺少“;”(在“*”的前面)
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(111): error C2059: 语法错误:“)”
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(112): error C2054: 在“fd_list”之后应输入“(”
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(123): error C2065: “sockaddr_in”: 未声明的标识符
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(123): error C2146: 语法错误: 缺少“;”(在标识符“local_addr”的前面)
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(123): error C2065: “local_addr”: 未声明的标识符
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(123): error C2065: “remote_addr”: 未声明的标识符
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(130): warning C4013: “init_list”未定义；假设外部返回 int
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(138): error C2079: “qrydata”使用未定义的 struct“qdata”
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(139): error C2065: “WSAData”: 未声明的标识符
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(139): error C2146: 语法错误: 缺少“;”(在标识符“wsa”的前面)
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(139): error C2065: “wsa”: 未声明的标识符
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(140): error C2065: “wsa”: 未声明的标识符
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(140): warning C4133: “函数”: 从“int *”到“LPWSADATA”的类型不兼容
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(145): error C2065: “local_addr”: 未声明的标识符
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(145): error C2224: “.sin_family”的左侧必须具有结构/联合类型
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(146): error C2065: “local_addr”: 未声明的标识符
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(146): error C2224: “.sin_addr”的左侧必须具有结构/联合类型
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(147): error C2065: “local_addr”: 未声明的标识符
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(147): error C2224: “.sin_port”的左侧必须具有结构/联合类型
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(148): error C2065: “sockaddr”: 未声明的标识符
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(148): error C2059: 语法错误:“)”
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(156): warning C4013: “make_fdlist”未定义；假设外部返回 int
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(163): error C2065: “remote_addr”: 未声明的标识符
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(164): error C2065: “sockaddr”: 未声明的标识符
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(164): error C2059: 语法错误:“)”
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(168): error C2440: “=”: 无法从“qdata”转换为“int”
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(169): error C2224: “.qlst_char”的左侧必须具有结构/联合类型
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(169): error C2198: “send”: 用于调用的参数太少
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(175): error C2224: “.qrslt”的左侧必须具有结构/联合类型
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(178): warning C4013: “insert_list”未定义；假设外部返回 int
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(194): warning C4013: “delete_list”未定义；假设外部返回 int
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(214): warning C4018: “<”: 有符号/无符号不匹配
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(236): warning C4018: “<”: 有符号/无符号不匹配
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(128): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(132): note: 参见“strcpy”的声明
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(209): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(132): note: 参见“strcpy”的声明
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(218): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(132): note: 参见“strcpy”的声明
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(219): error C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(89): note: 参见“strcat”的声明
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(221): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(207): note: 参见“fopen”的声明
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(231): error C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(89): note: 参见“strcat”的声明
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(235): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(132): note: 参见“strcpy”的声明
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(241): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(132): note: 参见“strcpy”的声明
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(243): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(132): note: 参见“strcpy”的声明
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(244): error C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(89): note: 参见“strcat”的声明
+e:\workstation\github\network-programming-homework\homework3\总代码(文件传输)\server\server\server.c(245): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(207): note: 参见“fopen”的声明
