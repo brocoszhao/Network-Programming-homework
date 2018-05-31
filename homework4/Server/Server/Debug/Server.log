@@ -1,0 +1,5 @@
+﻿  blocksevr.cpp
+e:\workstation\github\network-programming-homework\homework4\server\server\blocksevr.cpp(66): warning C4101: “timeout”: 未引用的局部变量
+  nblksrv.cpp
+  正在生成代码...
+  Server.vcxproj -> E:\Workstation\Github\Network-Programming-homework\homework4\Server\Debug\Server.exe

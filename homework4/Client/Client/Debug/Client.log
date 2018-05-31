@@ -1,0 +1,3 @@
+﻿  client(阻塞与非阻塞).cpp
+e:\workstation\github\network-programming-homework\homework4\client\client\client(阻塞与非阻塞).cpp(18): warning C4101: “len”: 未引用的局部变量
+  Client.vcxproj -> E:\Workstation\Github\Network-Programming-homework\homework4\Client\Debug\Client.exe
